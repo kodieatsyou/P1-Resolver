@@ -1,0 +1,2 @@
+/usr/bin/ar qc libresolver.a CMakeFiles/resolver.dir/src/Db.cpp.o CMakeFiles/resolver.dir/src/World.cpp.o CMakeFiles/resolver.dir/src/Trace.cpp.o CMakeFiles/resolver.dir/src/Resolver.cpp.o
+/usr/bin/ranlib libresolver.a

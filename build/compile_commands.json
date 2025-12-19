@@ -1,0 +1,38 @@
+[
+{
+  "directory": "/run/media/tanner/Whiterun/Soupbox/Project Folders/LarianPortfolio/P1-Resolver/build",
+  "command": "/usr/bin/g++ -I\"/run/media/tanner/Whiterun/Soupbox/Project Folders/LarianPortfolio/P1-Resolver/include\" -g -std=gnu++20 -o CMakeFiles/resolver.dir/src/Db.cpp.o -c \"/run/media/tanner/Whiterun/Soupbox/Project Folders/LarianPortfolio/P1-Resolver/src/Db.cpp\"",
+  "file": "/run/media/tanner/Whiterun/Soupbox/Project Folders/LarianPortfolio/P1-Resolver/src/Db.cpp",
+  "output": "/run/media/tanner/Whiterun/Soupbox/Project Folders/LarianPortfolio/P1-Resolver/build/CMakeFiles/resolver.dir/src/Db.cpp.o"
+},
+{
+  "directory": "/run/media/tanner/Whiterun/Soupbox/Project Folders/LarianPortfolio/P1-Resolver/build",
+  "command": "/usr/bin/g++ -I\"/run/media/tanner/Whiterun/Soupbox/Project Folders/LarianPortfolio/P1-Resolver/include\" -g -std=gnu++20 -o CMakeFiles/resolver.dir/src/World.cpp.o -c \"/run/media/tanner/Whiterun/Soupbox/Project Folders/LarianPortfolio/P1-Resolver/src/World.cpp\"",
+  "file": "/run/media/tanner/Whiterun/Soupbox/Project Folders/LarianPortfolio/P1-Resolver/src/World.cpp",
+  "output": "/run/media/tanner/Whiterun/Soupbox/Project Folders/LarianPortfolio/P1-Resolver/build/CMakeFiles/resolver.dir/src/World.cpp.o"
+},
+{
+  "directory": "/run/media/tanner/Whiterun/Soupbox/Project Folders/LarianPortfolio/P1-Resolver/build",
+  "command": "/usr/bin/g++ -I\"/run/media/tanner/Whiterun/Soupbox/Project Folders/LarianPortfolio/P1-Resolver/include\" -g -std=gnu++20 -o CMakeFiles/resolver.dir/src/Trace.cpp.o -c \"/run/media/tanner/Whiterun/Soupbox/Project Folders/LarianPortfolio/P1-Resolver/src/Trace.cpp\"",
+  "file": "/run/media/tanner/Whiterun/Soupbox/Project Folders/LarianPortfolio/P1-Resolver/src/Trace.cpp",
+  "output": "/run/media/tanner/Whiterun/Soupbox/Project Folders/LarianPortfolio/P1-Resolver/build/CMakeFiles/resolver.dir/src/Trace.cpp.o"
+},
+{
+  "directory": "/run/media/tanner/Whiterun/Soupbox/Project Folders/LarianPortfolio/P1-Resolver/build",
+  "command": "/usr/bin/g++ -I\"/run/media/tanner/Whiterun/Soupbox/Project Folders/LarianPortfolio/P1-Resolver/include\" -g -std=gnu++20 -o CMakeFiles/resolver.dir/src/Resolver.cpp.o -c \"/run/media/tanner/Whiterun/Soupbox/Project Folders/LarianPortfolio/P1-Resolver/src/Resolver.cpp\"",
+  "file": "/run/media/tanner/Whiterun/Soupbox/Project Folders/LarianPortfolio/P1-Resolver/src/Resolver.cpp",
+  "output": "/run/media/tanner/Whiterun/Soupbox/Project Folders/LarianPortfolio/P1-Resolver/build/CMakeFiles/resolver.dir/src/Resolver.cpp.o"
+},
+{
+  "directory": "/run/media/tanner/Whiterun/Soupbox/Project Folders/LarianPortfolio/P1-Resolver/build",
+  "command": "/usr/bin/g++ -I\"/run/media/tanner/Whiterun/Soupbox/Project Folders/LarianPortfolio/P1-Resolver/include\" -g -std=gnu++20 -o CMakeFiles/resolver_demo.dir/src/main.cpp.o -c \"/run/media/tanner/Whiterun/Soupbox/Project Folders/LarianPortfolio/P1-Resolver/src/main.cpp\"",
+  "file": "/run/media/tanner/Whiterun/Soupbox/Project Folders/LarianPortfolio/P1-Resolver/src/main.cpp",
+  "output": "/run/media/tanner/Whiterun/Soupbox/Project Folders/LarianPortfolio/P1-Resolver/build/CMakeFiles/resolver_demo.dir/src/main.cpp.o"
+},
+{
+  "directory": "/run/media/tanner/Whiterun/Soupbox/Project Folders/LarianPortfolio/P1-Resolver/build",
+  "command": "/usr/bin/g++ -I\"/run/media/tanner/Whiterun/Soupbox/Project Folders/LarianPortfolio/P1-Resolver/include\" -g -std=gnu++20 -o CMakeFiles/resolver_tests.dir/tests/ResolverTests.cpp.o -c \"/run/media/tanner/Whiterun/Soupbox/Project Folders/LarianPortfolio/P1-Resolver/tests/ResolverTests.cpp\"",
+  "file": "/run/media/tanner/Whiterun/Soupbox/Project Folders/LarianPortfolio/P1-Resolver/tests/ResolverTests.cpp",
+  "output": "/run/media/tanner/Whiterun/Soupbox/Project Folders/LarianPortfolio/P1-Resolver/build/CMakeFiles/resolver_tests.dir/tests/ResolverTests.cpp.o"
+}
+]

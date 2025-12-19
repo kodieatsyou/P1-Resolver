@@ -1,0 +1,1 @@
+/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/resolver_demo.dir/link.d CMakeFiles/resolver_demo.dir/src/main.cpp.o -o resolver_demo  libresolver.a

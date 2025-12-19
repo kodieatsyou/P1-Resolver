@@ -1,0 +1,17 @@
+{
+    "statuses": [
+        {
+            "id": "burning",
+            "tags": [
+                "Debuff",
+                "Fire",
+                "DoT"
+            ],
+            "maxStacks": 5,
+            "dot": {
+                "damageType": "Fire",
+                "perStackBase": 4
+            }
+        }
+    ]
+}

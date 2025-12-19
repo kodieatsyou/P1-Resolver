@@ -1,0 +1,5 @@
+/run/media/tanner/Whiterun/Soupbox/Project Folders/LarianPortfolio/P1-Resolver/build/CMakeFiles/resolver.dir
+/run/media/tanner/Whiterun/Soupbox/Project Folders/LarianPortfolio/P1-Resolver/build/CMakeFiles/resolver_demo.dir
+/run/media/tanner/Whiterun/Soupbox/Project Folders/LarianPortfolio/P1-Resolver/build/CMakeFiles/resolver_tests.dir
+/run/media/tanner/Whiterun/Soupbox/Project Folders/LarianPortfolio/P1-Resolver/build/CMakeFiles/edit_cache.dir
+/run/media/tanner/Whiterun/Soupbox/Project Folders/LarianPortfolio/P1-Resolver/build/CMakeFiles/rebuild_cache.dir
