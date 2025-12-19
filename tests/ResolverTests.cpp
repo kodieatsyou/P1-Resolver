@@ -2,135 +2,78 @@
 #include "resolver/DbLoader.h"
 #include <cassert>
 #include <iostream>
+#include <string>
 
 using namespace res;
 
-static Db MakeDb()
-{
-    Db db;
 
-    // Status: burning increases fire damage taken by 20%
-    {
-        StatusDef s;
-        s.id = "burning";
-        s.tags = {"Debuff", "Fire", "DoT"};
-        s.maxStacks = 5;
-        s.dot = DotDef{DamageType::Fire, 4};
-
-        ModifierRule r;
-        r.when.incomingDamageType = DamageType::Fire;
-        r.modify.multiplier = 1.2f;
-        s.hooks[Hook::OnBeforeTakeDamage].push_back(r);
-
-        db.statuses[s.id] = s;
+static void AssertGolden(const std::string& name, const std::string& got, const std::string& expected) {
+    if(got != expected) {
+        std::cerr << "MISMATCH: " << name << "\n";
+        std::cerr << "\n------- EXPECTED-------\n" << expected;
+        std::cerr << "\n------- GOT -------\n" << got;
+        assert(false);
     }
-
-    // Status: shielded reduces physical damage taken by 20%
-    {
-        StatusDef s;
-        s.id = "shielded";
-        s.tags = {"Buff"};
-        s.maxStacks = 1;
-        s.statMods = {StatModDef{Stat::Armor, 0}};
-
-        ModifierRule r;
-        r.when.incomingDamageType = DamageType::Physical;
-        r.modify.multiplier = 0.8f;
-        s.hooks[Hook::OnBeforeTakeDamage].push_back(r);
-
-        db.statuses[s.id] = s;
-    }
-
-    // Ability: firebolt (base 12 + Power*0.6), Fire
-    {
-        AbilityDef a;
-        a.id = "firebolt";
-        a.tags = {"Spell", "Fire"};
-        a.targeting = {TargetMode::SingleEnemy};
-
-        AbilityEffectDef e;
-        e.kind = AbilityEffectDef::Kind::Damage;
-        e.damageType = DamageType::Fire;
-        e.amount = ScaledAmount{12.f, Stat::Power, 0.6f};
-
-        a.effects = {e};
-        db.abilities[a.id] = a;
-    }
-
-    // Ability: strike (base 10 + Power*0.5), Physical
-    {
-        AbilityDef a;
-        a.id = "strike";
-        a.tags = {"Melee"};
-        a.targeting = {TargetMode::SingleEnemy};
-
-        AbilityEffectDef e;
-        e.kind = AbilityEffectDef::Kind::Damage;
-        e.damageType = DamageType::Physical;
-        e.amount = ScaledAmount{10.f, Stat::Power, 0.5f};
-
-        a.effects = {e};
-        db.abilities[a.id] = a;
-    }
-
-    return db;
 }
 
 int main() 
 {
-    Db db = MakeDb();
-    Resolver r(db);
+    Db db = DbLoader::LoadFromFiles("data/abilities.json", "data/statuses.json");
+    Resolver resolver(db);
 
-    // --- Test 1: burning increases fire damage taken ---
+    // Case: firebolt into burning target should include modifier and higher damage
     {
         World w;
         w.entities[1] = Entity{1, 100, 0, 10, {"Player"}, {}};
         w.entities[2] = Entity{2, 100, 0, 10, {"Enemy"}, {}};
+
         w.AddStatus(db, w.entities[2], "burning", 2, 1);
 
-        auto trace = r.Resolve(w, {"firebolt", 1, {2}});
+        auto trace = resolver.Resolve(w, {"firebolt", 1, {2}});
+        const std::string got = trace.ToString();
 
-        // raw = 12 + 10*0.6 = 18
-        // burning: *1.2 => 21.6 -> int 21
-        assert(w.entities[2].hp == 79);
-
-        // Ensure trace contains a modifier line
-        bool found = false;
-        for (auto &ev : trace.events)
-        {
-            if (ev.msg.find("Resolving hooks:\nCurrent Status:[burning]") != std::string::npos)
-            {
-                found = true;
-                break;
-            }
-        }
-        assert(found);
+        const std::string expected =
+            "------------------------------------------\n"
+            "Resolving ability: [firebolt] caster id: [1]\n"
+            "------------------------------------------\n"
+            "Resolving hooks:\n"
+            "Current Status:[burning] hooks:[OnBeforeTakeDamage] stacks:[1]\n"
+            "Damage value before:[18.00] after:[21.60]\n"
+            "------------------------------------------\n"
+            "Resolving Damage:\n"
+            "Amount:[21 Fire]\n"
+            "Target entity:[2] HP before:[100] after:[79]\n"
+            "------------------------------------------\n"
+            "Status applied:[burning] for:[2] turns\n"
+            "------------------------------------------\n";
+        AssertGolden("firebolt_vs_burning", got, expected);
     }
 
-    // --- Test 2: shield reduces physical damage taken ---
+    // Case: strike into shielded target should include modifier and reduced damage
     {
         World w;
         w.entities[1] = Entity{1, 100, 0, 10, {"Player"}, {}};
         w.entities[2] = Entity{2, 100, 0, 10, {"Enemy"}, {}};
+
         w.AddStatus(db, w.entities[2], "shielded", 2, 1);
 
-        auto trace = r.Resolve(w, {"strike", 1, {2}});
+        auto trace = resolver.Resolve(w, {"strike", 1, {2}});
+        const std::string got = trace.ToString();
 
-        // raw = 10 + 10*0.5 = 15
-        // guarded: *0.8 => 12 -> int 12
-        assert(w.entities[2].hp == 88);
+        const std::string expected =
+            "------------------------------------------\n"
+            "Resolving ability: [strike] caster id: [1]\n"
+            "------------------------------------------\n"
+            "Resolving hooks:\n"
+            "Current Status:[shielded] hooks:[OnBeforeTakeDamage] stacks:[1]\n"
+            "Damage value before:[15.00] after:[12.00]\n"
+            "------------------------------------------\n"
+            "Resolving Damage:\n"
+            "Amount:[12 Physical]\n"
+            "Target entity:[2] HP before:[100] after:[88]\n"
+            "------------------------------------------\n";
 
-        // Ensure trace contains a modifier line
-        bool found = false;
-        for (auto &ev : trace.events)
-        {
-            if (ev.msg.find("Resolving hooks:\nCurrent Status:[shielded]") != std::string::npos)
-            {
-                found = true;
-                break;
-            }
-        }
-        assert(found);
+        AssertGolden("strike_vs_shielded", got, expected);
     }
 
     std::cout << "All tests passed.\n";

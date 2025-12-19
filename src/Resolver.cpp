@@ -1,6 +1,10 @@
 #include "resolver/Resolver.h"
+#include "resolver/Format.h"
 #include <algorithm>
 #include <cmath>
+
+// NOTE: Resolution trace output is a public, stable contract.
+// Any change must update golden tests intentionally.
 
 namespace res {
 
@@ -51,10 +55,10 @@ namespace res {
                 //Flat then multiply also scale by stacks
                 value += r.modify.addFlat * (float)si.stacks;
                 value *= std::pow(r.modify.multiplier, (float)si.stacks);
-                trace.Add("Resolving hooks:\nCurrent Status:[" + sdef.id + "] hooks:[" + 
-                    std::string(hook == Hook::OnBeforeDealDamage ? "OnBeforeDealDamage" : "OnBeforeTageDamage") +
-                "] stacks:[" + std::to_string(si.stacks) +
-                "]\nDamage value before:[" + std::to_string(before) + "] after:[" + std::to_string(value) + "]");
+                trace.Add("Resolving hooks:\nCurrent Status:[" + sdef.id + "] hooks:[" +
+                          std::string(hook == Hook::OnBeforeDealDamage ? "OnBeforeDealDamage" : "OnBeforeTakeDamage") +
+                          "] stacks:[" + std::to_string(si.stacks) +
+                          "]\nDamage value before:[" + FmtFloat(before) + "] after:[" + FmtFloat(value) + "]");
                 trace.Add("------------------------------------------");
             }
         }
