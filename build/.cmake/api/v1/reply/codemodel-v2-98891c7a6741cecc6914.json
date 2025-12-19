@@ -44,21 +44,21 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "resolver::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-resolver-Debug-7be28b8f0a2def1d42ce.json",
+					"jsonFile" : "target-resolver-Debug-09178cd1786335ccbc52.json",
 					"name" : "resolver",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "resolver_demo::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-resolver_demo-Debug-c13fe71549659e308a96.json",
+					"jsonFile" : "target-resolver_demo-Debug-98b7b064a531af39bdff.json",
 					"name" : "resolver_demo",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "resolver_tests::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-resolver_tests-Debug-53dd005875e08ede2dfd.json",
+					"jsonFile" : "target-resolver_tests-Debug-61e3f6c5c548c809da18.json",
 					"name" : "resolver_tests",
 					"projectIndex" : 0
 				}

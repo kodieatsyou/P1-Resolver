@@ -9,9 +9,10 @@ add_library(resolver
   src/World.cpp
   src/Trace.cpp
   src/Resolver.cpp
+  src/DbLoader.cpp
 )
 
-target_include_directories(resolver PUBLIC include)
+target_include_directories(resolver PUBLIC include external)
 
 add_executable(resolver_demo src/main.cpp)
 target_link_libraries(resolver_demo PRIVATE resolver)

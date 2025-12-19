@@ -1,14 +1,14 @@
 # ninja log v7
-1	188	1766166285132180100	CMakeFiles/resolver.dir/src/Trace.cpp.o	2017a4fb6d32b5f1
-1	228	1766166285132180100	CMakeFiles/resolver.dir/src/Db.cpp.o	38d6a6854b21e70a
-1	282	1766167539377023300	CMakeFiles/resolver.dir/src/Resolver.cpp.o	ba85c2dc9dd0569a
-0	330	1766167646171602000	CMakeFiles/resolver.dir/src/World.cpp.o	ebe3ac9a6e1af56
-330	352	1766167646501606800	libresolver.a	b607a6dc1be9969
-1	550	1766166285132180100	CMakeFiles/resolver_demo.dir/src/main.cpp.o	4dddb3e832ddcfdd
-1	595	1766166285132180100	CMakeFiles/resolver_tests.dir/tests/ResolverTests.cpp.o	655ced02d489dc68
-352	447	1766167646523607100	resolver_demo	387ff8a6014fce54
-352	448	1766167646523607100	resolver_tests	2c87ba6716f859e
-0	322	1766167654675725100	CMakeFiles/resolver.dir/src/World.cpp.o	ebe3ac9a6e1af56
-322	344	1766167654997729700	libresolver.a	b607a6dc1be9969
-344	398	1766167655019730000	resolver_tests	2c87ba6716f859e
-344	437	1766167655019730000	resolver_demo	387ff8a6014fce54
+2	186	1766168403930625800	CMakeFiles/resolver.dir/src/Trace.cpp.o	70e48ad5344ad33b
+1	240	1766168403929625800	CMakeFiles/resolver.dir/src/Db.cpp.o	466b481a69c257f9
+2	299	1766168403930625800	CMakeFiles/resolver.dir/src/Resolver.cpp.o	67dde8764efec915
+1	352	1766168403929625800	CMakeFiles/resolver.dir/src/World.cpp.o	873fca0f694780d0
+352	376	1766168404280630100	libresolver.a	b607a6dc1be9969
+1	378	1766169975482095700	CMakeFiles/resolver_demo.dir/src/main.cpp.o	95355e1e2168e3c1
+1	371	1766169975482095700	CMakeFiles/resolver_tests.dir/tests/ResolverTests.cpp.o	f2c937e479b93aab
+373	464	1766169969685029800	resolver_demo	387ff8a6014fce54
+375	459	1766169969687029800	resolver_tests	2c87ba6716f859e
+1	1546	1766170135868927500	CMakeFiles/resolver.dir/src/DbLoader.cpp.o	efa0954871fd38d9
+1546	1580	1766170137413945200	libresolver.a	379f1d14d65cb878
+1580	1758	1766170137447945600	resolver_demo	387ff8a6014fce54
+1580	1759	1766170137447945600	resolver_tests	2c87ba6716f859e

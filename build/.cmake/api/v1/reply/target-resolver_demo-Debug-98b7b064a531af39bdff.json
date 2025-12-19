@@ -1,9 +1,8 @@
 {
-	"archive" : {},
 	"artifacts" : 
 	[
 		{
-			"path" : "libresolver.a"
+			"path" : "resolver_demo"
 		}
 	],
 	"backtrace" : 1,
@@ -11,8 +10,8 @@
 	{
 		"commands" : 
 		[
-			"add_library",
-			"target_include_directories"
+			"add_executable",
+			"target_link_libraries"
 		],
 		"files" : 
 		[
@@ -26,13 +25,13 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 7,
+				"line" : 17,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 14,
+				"line" : 18,
 				"parent" : 0
 			}
 		]
@@ -42,6 +41,13 @@
 		"major" : 2,
 		"minor" : 9
 	},
+	"compileDependencies" : 
+	[
+		{
+			"backtrace" : 2,
+			"id" : "resolver::@6890427a1f51a3e7e1df"
+		}
+	],
 	"compileGroups" : 
 	[
 		{
@@ -56,6 +62,10 @@
 				{
 					"backtrace" : 2,
 					"path" : "/run/media/tanner/Whiterun/Soupbox/Project Folders/LarianPortfolio/P1-Resolver/include"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/run/media/tanner/Whiterun/Soupbox/Project Folders/LarianPortfolio/P1-Resolver/external"
 				}
 			],
 			"language" : "CXX",
@@ -69,16 +79,43 @@
 			},
 			"sourceIndexes" : 
 			[
-				0,
-				1,
-				2,
-				3
+				0
 			]
 		}
 	],
-	"id" : "resolver::@6890427a1f51a3e7e1df",
-	"name" : "resolver",
-	"nameOnDisk" : "libresolver.a",
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 2,
+			"id" : "resolver::@6890427a1f51a3e7e1df"
+		}
+	],
+	"id" : "resolver_demo::@6890427a1f51a3e7e1df",
+	"link" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"fragment" : "-g",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "libresolver.a",
+				"role" : "libraries"
+			}
+		],
+		"language" : "CXX"
+	},
+	"linkLibraries" : 
+	[
+		{
+			"backtrace" : 2,
+			"id" : "resolver::@6890427a1f51a3e7e1df"
+		}
+	],
+	"name" : "resolver_demo",
+	"nameOnDisk" : "resolver_demo",
 	"paths" : 
 	{
 		"build" : ".",
@@ -90,10 +127,7 @@
 			"name" : "Source Files",
 			"sourceIndexes" : 
 			[
-				0,
-				1,
-				2,
-				3
+				0
 			]
 		}
 	],
@@ -102,27 +136,9 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/Db.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "src/World.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "src/Trace.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "src/Resolver.cpp",
+			"path" : "src/main.cpp",
 			"sourceGroupIndex" : 0
 		}
 	],
-	"type" : "STATIC_LIBRARY"
+	"type" : "EXECUTABLE"
 }

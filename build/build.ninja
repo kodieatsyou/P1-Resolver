@@ -53,7 +53,7 @@ build CMakeFiles/resolver.dir/src/Db.cpp.o: CXX_COMPILER__resolver_unscanned_Deb
   CONFIG = Debug
   DEP_FILE = CMakeFiles/resolver.dir/src/Db.cpp.o.d
   FLAGS = -g -std=gnu++20
-  INCLUDES = -I"/run/media/tanner/Whiterun/Soupbox/Project Folders/LarianPortfolio/P1-Resolver/include"
+  INCLUDES = -I"/run/media/tanner/Whiterun/Soupbox/Project Folders/LarianPortfolio/P1-Resolver/include" -I"/run/media/tanner/Whiterun/Soupbox/Project Folders/LarianPortfolio/P1-Resolver/external"
   OBJECT_DIR = CMakeFiles/resolver.dir
   OBJECT_FILE_DIR = CMakeFiles/resolver.dir/src
   TARGET_SUPPORT_DIR = CMakeFiles/resolver.dir
@@ -62,7 +62,7 @@ build CMakeFiles/resolver.dir/src/World.cpp.o: CXX_COMPILER__resolver_unscanned_
   CONFIG = Debug
   DEP_FILE = CMakeFiles/resolver.dir/src/World.cpp.o.d
   FLAGS = -g -std=gnu++20
-  INCLUDES = -I"/run/media/tanner/Whiterun/Soupbox/Project Folders/LarianPortfolio/P1-Resolver/include"
+  INCLUDES = -I"/run/media/tanner/Whiterun/Soupbox/Project Folders/LarianPortfolio/P1-Resolver/include" -I"/run/media/tanner/Whiterun/Soupbox/Project Folders/LarianPortfolio/P1-Resolver/external"
   OBJECT_DIR = CMakeFiles/resolver.dir
   OBJECT_FILE_DIR = CMakeFiles/resolver.dir/src
   TARGET_SUPPORT_DIR = CMakeFiles/resolver.dir
@@ -71,7 +71,7 @@ build CMakeFiles/resolver.dir/src/Trace.cpp.o: CXX_COMPILER__resolver_unscanned_
   CONFIG = Debug
   DEP_FILE = CMakeFiles/resolver.dir/src/Trace.cpp.o.d
   FLAGS = -g -std=gnu++20
-  INCLUDES = -I"/run/media/tanner/Whiterun/Soupbox/Project Folders/LarianPortfolio/P1-Resolver/include"
+  INCLUDES = -I"/run/media/tanner/Whiterun/Soupbox/Project Folders/LarianPortfolio/P1-Resolver/include" -I"/run/media/tanner/Whiterun/Soupbox/Project Folders/LarianPortfolio/P1-Resolver/external"
   OBJECT_DIR = CMakeFiles/resolver.dir
   OBJECT_FILE_DIR = CMakeFiles/resolver.dir/src
   TARGET_SUPPORT_DIR = CMakeFiles/resolver.dir
@@ -80,7 +80,16 @@ build CMakeFiles/resolver.dir/src/Resolver.cpp.o: CXX_COMPILER__resolver_unscann
   CONFIG = Debug
   DEP_FILE = CMakeFiles/resolver.dir/src/Resolver.cpp.o.d
   FLAGS = -g -std=gnu++20
-  INCLUDES = -I"/run/media/tanner/Whiterun/Soupbox/Project Folders/LarianPortfolio/P1-Resolver/include"
+  INCLUDES = -I"/run/media/tanner/Whiterun/Soupbox/Project Folders/LarianPortfolio/P1-Resolver/include" -I"/run/media/tanner/Whiterun/Soupbox/Project Folders/LarianPortfolio/P1-Resolver/external"
+  OBJECT_DIR = CMakeFiles/resolver.dir
+  OBJECT_FILE_DIR = CMakeFiles/resolver.dir/src
+  TARGET_SUPPORT_DIR = CMakeFiles/resolver.dir
+
+build CMakeFiles/resolver.dir/src/DbLoader.cpp.o: CXX_COMPILER__resolver_unscanned_Debug /run/media/tanner/Whiterun/Soupbox/Project$ Folders/LarianPortfolio/P1-Resolver/src/DbLoader.cpp || cmake_object_order_depends_target_resolver
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles/resolver.dir/src/DbLoader.cpp.o.d
+  FLAGS = -g -std=gnu++20
+  INCLUDES = -I"/run/media/tanner/Whiterun/Soupbox/Project Folders/LarianPortfolio/P1-Resolver/include" -I"/run/media/tanner/Whiterun/Soupbox/Project Folders/LarianPortfolio/P1-Resolver/external"
   OBJECT_DIR = CMakeFiles/resolver.dir
   OBJECT_FILE_DIR = CMakeFiles/resolver.dir/src
   TARGET_SUPPORT_DIR = CMakeFiles/resolver.dir
@@ -93,7 +102,7 @@ build CMakeFiles/resolver.dir/src/Resolver.cpp.o: CXX_COMPILER__resolver_unscann
 #############################################
 # Link the static library libresolver.a
 
-build libresolver.a: CXX_STATIC_LIBRARY_LINKER__resolver_Debug CMakeFiles/resolver.dir/src/Db.cpp.o CMakeFiles/resolver.dir/src/World.cpp.o CMakeFiles/resolver.dir/src/Trace.cpp.o CMakeFiles/resolver.dir/src/Resolver.cpp.o
+build libresolver.a: CXX_STATIC_LIBRARY_LINKER__resolver_Debug CMakeFiles/resolver.dir/src/Db.cpp.o CMakeFiles/resolver.dir/src/World.cpp.o CMakeFiles/resolver.dir/src/Trace.cpp.o CMakeFiles/resolver.dir/src/Resolver.cpp.o CMakeFiles/resolver.dir/src/DbLoader.cpp.o
   CONFIG = Debug
   LANGUAGE_COMPILE_FLAGS = -g
   OBJECT_DIR = CMakeFiles/resolver.dir
@@ -116,7 +125,7 @@ build CMakeFiles/resolver_demo.dir/src/main.cpp.o: CXX_COMPILER__resolver_demo_u
   CONFIG = Debug
   DEP_FILE = CMakeFiles/resolver_demo.dir/src/main.cpp.o.d
   FLAGS = -g -std=gnu++20
-  INCLUDES = -I"/run/media/tanner/Whiterun/Soupbox/Project Folders/LarianPortfolio/P1-Resolver/include"
+  INCLUDES = -I"/run/media/tanner/Whiterun/Soupbox/Project Folders/LarianPortfolio/P1-Resolver/include" -I"/run/media/tanner/Whiterun/Soupbox/Project Folders/LarianPortfolio/P1-Resolver/external"
   OBJECT_DIR = CMakeFiles/resolver_demo.dir
   OBJECT_FILE_DIR = CMakeFiles/resolver_demo.dir/src
   TARGET_SUPPORT_DIR = CMakeFiles/resolver_demo.dir
@@ -155,7 +164,7 @@ build CMakeFiles/resolver_tests.dir/tests/ResolverTests.cpp.o: CXX_COMPILER__res
   CONFIG = Debug
   DEP_FILE = CMakeFiles/resolver_tests.dir/tests/ResolverTests.cpp.o.d
   FLAGS = -g -std=gnu++20
-  INCLUDES = -I"/run/media/tanner/Whiterun/Soupbox/Project Folders/LarianPortfolio/P1-Resolver/include"
+  INCLUDES = -I"/run/media/tanner/Whiterun/Soupbox/Project Folders/LarianPortfolio/P1-Resolver/include" -I"/run/media/tanner/Whiterun/Soupbox/Project Folders/LarianPortfolio/P1-Resolver/external"
   OBJECT_DIR = CMakeFiles/resolver_tests.dir
   OBJECT_FILE_DIR = CMakeFiles/resolver_tests.dir/tests
   TARGET_SUPPORT_DIR = CMakeFiles/resolver_tests.dir
