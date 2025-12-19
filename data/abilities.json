@@ -2,11 +2,50 @@
   "abilities": [
     {
       "id": "firebolt",
-      "tags": ["Spell", "Fire"],
-      "targeting": { "mode": "SingleEnemy" },
+      "tags": [
+        "Spell",
+        "Fire"
+      ],
+      "targeting": {
+        "mode": "SingleEnemy"
+      },
       "effects": [
-        { "type": "Damage", "damageType": "Fire", "amount": { "base": 12, "scalesWith": "Power", "scale": 0.6 } },
-        { "type": "ApplyStatus", "statusId": "burning", "duration": 2, "stacks": 1 }
+        {
+          "type": "Damage",
+          "damageType": "Fire",
+          "amount": {
+            "base": 12,
+            "scalesWith": "Power",
+            "scale": 0.6
+          }
+        },
+        {
+          "type": "ApplyStatus",
+          "statusId": "burning",
+          "duration": 2,
+          "stacks": 1
+        }
+      ]
+    },
+    {
+      "id": "strike",
+      "tags": [
+        "Melee",
+        "Physical"
+      ],
+      "targeting": {
+        "mode": "SingleEnemy"
+      },
+      "effects": [
+        {
+          "type": "Damage",
+          "damageType": "Physical",
+          "amount": {
+            "base": 10,
+            "scalesWith": "Power",
+            "scale": 0.5
+          }
+        }
       ]
     }
   ]

@@ -84,7 +84,12 @@ namespace res {
                 }
             }
         }
+    }
 
-        
+    bool World::EntityHasAnyStatusWithTag(const Db& db, const Entity& e, const std::string& tag) const {
+        for(const auto& si: e.statuses) {
+            if(HasStatusTag(db, si, tag)) return true;
+        }
+        return false;
     }
 }

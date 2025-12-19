@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 #include <optional>
+#include <unordered_map>
 
 namespace res
 {
@@ -29,6 +30,27 @@ namespace res
         HP,
         Armor,
         Power
+    };
+
+    enum class Hook {
+        OnBeforeDealDamage,
+        OnBeforeTakeDamage
+    };
+
+    struct ModifierCondition {
+        std::optional<DamageType> incomingDamageType;
+        std::optional<std::string> abilityHasTag;
+        std::optional<std::string> targetHasStatusTag;
+    };
+
+    struct Modify {
+        float addFlat;
+        float multiplier;
+    };
+
+    struct ModifierRule {
+        ModifierCondition when{};
+        Modify modify{};
     };
 
     struct ScaledAmount
@@ -90,6 +112,7 @@ namespace res
         std::vector<std::string> tags;
         int maxStacks = 1;
         std::vector<StatModDef> statMods;
+        std::unordered_map<Hook, std::vector<ModifierRule>> hooks;
         std::optional<DotDef> dot;
     };
 

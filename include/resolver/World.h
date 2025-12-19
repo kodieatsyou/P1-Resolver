@@ -37,6 +37,8 @@ namespace res {
         void AddStatus(const Db &db, Entity &target, const std::string &statusId, int duration, int stacks);
         int RemoveStatusesByTag(const Db &db, Entity &target, const std::string &tag, int maxRemoved);
         void TickTurnStart(const Db &db, ResolutionTrace &trace);
+
+        bool EntityHasAnyStatusWithTag(const Db& db, const Entity& e, const std::string& tag) const;
     };
 
 }

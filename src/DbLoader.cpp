@@ -2,6 +2,7 @@
 #include <nlohmann/json.hpp>
 #include <fstream>
 #include <stdexcept>
+#include <iostream>
 
 using json = nlohmann::json;
 
@@ -55,6 +56,15 @@ namespace res {
         throw std::runtime_error("Unknown Effect kind: " + s);
     }
 
+    static Hook ParseHooks(const std::string &s)
+    {
+        if (s == "OnBeforeDealDamage")
+            return Hook::OnBeforeDealDamage;
+        if (s == "OnBeforeTakeDamage")
+            return Hook::OnBeforeTakeDamage;
+        throw std::runtime_error("Unknown Hook: " + s);
+    }
+
     Db DbLoader::LoadFromFiles(const std::string& abilitiesPath, const std::string& statusesPath) {
         Db db;
 
@@ -74,8 +84,12 @@ namespace res {
 
                 if(js.contains("statMods")) {
                     for(const auto& jm: js["statMods"]) {
+                        if (!jm.contains("stat"))
+                            throw std::runtime_error("Status " + s.id + " statMods entry missing 'stat'");
+                        if (!jm.contains("add"))
+                            throw std::runtime_error("Status " + s.id + " statMods entry missing 'add'");
                         s.statMods.push_back({
-                            ParseStats(js.at("stat").get<std::string>()),
+                            ParseStats(jm.at("stat").get<std::string>()),
                             jm.value("add", 0)
                         });
                     }
@@ -86,6 +100,63 @@ namespace res {
                     d.damageType = ParseDamageTypes(js["dot"].at("damageType").get<std::string>());
                     d.perStackBase = js["dot"].at("perStackBase").get<int>();
                     s.dot = d;
+                }
+
+                if (js.contains("hooks"))
+                {
+                    const auto &jhooks = js.at("hooks");
+                    if (!jhooks.is_object())
+                    {
+                        throw std::runtime_error("Status " + s.id + " hooks must be an object");
+                    }
+
+                    for (auto it = jhooks.begin(); it != jhooks.end(); ++it)
+                    {
+                        const std::string hookName = it.key();
+                        Hook hook = ParseHooks(hookName);
+
+                        const auto &rulesArr = it.value();
+                        if (!rulesArr.is_array())
+                        {
+                            throw std::runtime_error("Status " + s.id + " hook " + hookName + " must be an array");
+                        }
+
+                        auto &outRules = s.hooks[hook];
+                        for (const auto &jr : rulesArr)
+                        {
+                            ModifierRule r;
+
+                            // when (optional)
+                            if (jr.contains("when"))
+                            {
+                                const auto &jw = jr.at("when");
+                                if (jw.contains("incomingDamageType"))
+                                {
+                                    r.when.incomingDamageType =
+                                        ParseDamageTypes(jw.at("incomingDamageType").get<std::string>());
+                                }
+                                if (jw.contains("abilityHasTag"))
+                                {
+                                    r.when.abilityHasTag = jw.at("abilityHasTag").get<std::string>();
+                                }
+                                if (jw.contains("targetHasStatusTag"))
+                                {
+                                    r.when.targetHasStatusTag = jw.at("targetHasStatusTag").get<std::string>();
+                                }
+                            }
+
+                            // modify (required)
+                            if (!jr.contains("modify"))
+                            {
+                                throw std::runtime_error("Status " + s.id + " hook " + hookName + " rule missing modify");
+                            }
+                            const auto &jm = jr.at("modify");
+                            r.modify.addFlat = jm.value("addFlat", 0.0f);
+                            r.modify.multiplier = jm.value("multiplier", 1.0f);
+
+                            outRules.push_back(std::move(r));
+                        }
+                    }
                 }
 
                 db.statuses.emplace(s.id, std::move(s));

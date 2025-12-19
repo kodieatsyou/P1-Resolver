@@ -11,6 +11,43 @@
             "dot": {
                 "damageType": "Fire",
                 "perStackBase": 4
+            },
+            "hooks": {
+                "OnBeforeTakeDamage": [
+                    {
+                        "when": {
+                            "incomingDamageType": "Fire"
+                        },
+                        "modify": {
+                            "multiplier": 1.2
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "id": "shielded",
+            "tags": [
+                "Buff"
+            ],
+            "maxStacks": 1,
+            "statMods": [
+                {
+                    "stat": "Armor",
+                    "add": 6
+                }
+            ],
+            "hooks": {
+                "OnBeforeTakeDamage": [
+                    {
+                        "when": {
+                            "incomingDamageType": "Physical"
+                        },
+                        "modify": {
+                            "multiplier": 0.8
+                        }
+                    }
+                ]
             }
         }
     ]
